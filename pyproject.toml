@@ -8,11 +8,20 @@ authors = ["Johnny Lee <johnny.lee@ocado.com>"]
 python = "^3.9"
 pytest = "^6.2.5"
 advent-of-code-data = "^1.1.0"
-black = "^21.11b1"
-pylint = "^2.12.1"
 
 [tool.poetry.dev-dependencies]
+pylint = "^2.12.1"
+black = "^21.11b1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+
+[tool.pylint."MESSAGES CONTROL"]
+disable = [
+    "missing-class-docstring",
+    "missing-function-docstring",
+    "missing-module-docstring",
+    "no-name-in-module"
+]
