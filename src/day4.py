@@ -14,6 +14,7 @@ def get_last_winner_score(data):
     return compute_score(winners[-1][0], winners[-1][1])
 
 
+# pylint:disable=consider-using-enumerate
 def compute_score(winner, marking_sheet):
     accum = 0
     multiplier = 0
@@ -83,6 +84,7 @@ def get_first_winner(numbers, boards):
                     if set(row_vals) == {1}:
                         marking_sheet[row][col] = 2
                         return (board, marking_sheet)
+    return None
 
 
 def parse_input(data):
@@ -103,6 +105,6 @@ def parse_input(data):
 
 
 if __name__ == "__main__":
-    data = get_data(day=4)
-    print(f"part 1 answer: {bingo(data)}")
-    print(f"part 2 answer: {get_last_winner_score(data)}")
+    input_data = get_data(day=4)
+    print(f"part 1 answer: {bingo(input_data)}")
+    print(f"part 2 answer: {get_last_winner_score(input_data)}")

@@ -1,5 +1,3 @@
-from textwrap import dedent
-
 from aocd import get_data
 
 

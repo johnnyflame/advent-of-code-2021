@@ -77,6 +77,6 @@ def life_support_rating(data):
 
 
 if __name__ == "__main__":
-    data = get_data(day=3)
-    print(f"part 1: {power_consumption(data)}")
-    print(f"part 2: {life_support_rating(data)}")
+    input_data = get_data(day=3)
+    print(f"part 1: {power_consumption(input_data)}")
+    print(f"part 2: {life_support_rating(input_data)}")

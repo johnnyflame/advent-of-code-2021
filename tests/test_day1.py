@@ -1,6 +1,6 @@
 from src.day1 import count_depth_increment, count_depth_increment_sum_of_three
 
-raw_data = """
+RAW_DATA = """
     199
     200
     208
@@ -12,7 +12,7 @@ raw_data = """
     260
     263
 """
-test_input = [int(line) for line in raw_data.splitlines() if line]
+test_input = [int(line) for line in RAW_DATA.splitlines() if line]
 
 
 def test_count_increment():
