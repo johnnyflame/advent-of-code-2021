@@ -3,15 +3,15 @@ from aocd import get_data
 
 def bingo(data):
     numbers, boards = parse_input(data)
-    winner, marking_sheet = get_winner(numbers, boards)
+    winner, marking_sheet = get_first_winner(numbers, boards)
     return compute_score(winner, marking_sheet)
 
 
 def get_last_winner_score(data):
     numbers, boards = parse_input(data)
-    winners, marking_sheets = get_winners(numbers, boards)
+    winners = get_all_winners(numbers, boards)
 
-    return compute_score(winners[-1], marking_sheets[-1])
+    return compute_score(winners[-1][0], winners[-1][1])
 
 
 def compute_score(winner, marking_sheet):
@@ -27,17 +27,19 @@ def compute_score(winner, marking_sheet):
     return accum * multiplier
 
 
-def get_winners(numbers, boards):
+def get_all_winners(numbers, boards):
     rows = len(boards[0])
     cols = len(boards[0][0])
     marking_sheets = [[[0] * cols for _ in range(rows)] for _ in range(len(boards))]
+    bingo_pack = list(zip(boards, marking_sheets))
 
     winners = []
-    winning_marking_sheets = []
     # iterate through all boards, for each row and column
     for number in numbers:
-        for idx, board in enumerate(boards):
-            marking_sheet = marking_sheets[idx]
+        for board, marking_sheet in bingo_pack:
+            if (board, marking_sheet) in winners:
+                continue
+
             for row in range(rows):
                 for col in range(cols):
                     if board[row][col] == number:
@@ -46,23 +48,19 @@ def get_winners(numbers, boards):
                     col_vals = [row[col] for row in marking_sheet]
                     if set(col_vals) == {1}:
                         marking_sheet[row][col] = 2
-                        winners.append(board)
-                        winning_marking_sheets.append(marking_sheet)
+                        winners.append((board, marking_sheet))
                         break
 
                     row_vals = marking_sheet[row]
                     if set(row_vals) == {1}:
                         marking_sheet[row][col] = 2
-                        winners.append(board)
-                        winning_marking_sheets.append(marking_sheet)
+                        winners.append((board, marking_sheet))
                         break
 
-        if len(winners) == len(boards):
-            break
-    return winners, winning_marking_sheets
+    return winners
 
 
-def get_winner(numbers, boards):
+def get_first_winner(numbers, boards):
     rows = len(boards[0])
     cols = len(boards[0][0])
     marking_sheets = [[[0] * cols for _ in range(rows)] for _ in range(len(boards))]
