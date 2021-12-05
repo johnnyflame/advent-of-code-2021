@@ -1,4 +1,5 @@
 from textwrap import dedent
+
 from src.day4 import bingo, get_last_winner_score
 
 test_input = dedent(

@@ -23,5 +23,8 @@ disable = [
     "missing-class-docstring",
     "missing-function-docstring",
     "missing-module-docstring",
-    "no-name-in-module"
+    "no-name-in-module",
+    "invalid-name",
+    "no-else-return",
+    "too-many-branches"
 ]
