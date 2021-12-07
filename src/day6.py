@@ -50,6 +50,6 @@ def flatten_fish(counter):
 
 
 if __name__ == "__main__":
-    data = [int(x) for x in get_data(day=6).split(",")]
-    print(f"part 1: {part_2(data,days=80)}")
-    print(f"part 2: {part_2(data,days=256)}")
+    input_data = [int(x) for x in get_data(day=6).split(",")]
+    print(f"part 1: {part_2(input_data,days=80)}")
+    print(f"part 2: {part_2(input_data,days=256)}")
