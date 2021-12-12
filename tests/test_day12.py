@@ -42,5 +42,5 @@ def test_part_2_small():
     assert part_2(small_example) == 36
 
 
-def test_part_2_small():
+def test_part_2_medium():
     assert part_2(medium_example) == 103

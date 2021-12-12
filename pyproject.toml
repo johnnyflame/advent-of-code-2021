@@ -26,5 +26,10 @@ disable = [
     "no-name-in-module",
     "invalid-name",
     "no-else-return",
-    "too-many-branches"
+    "too-many-branches",
+    "redefined-outer-name",
+    "redefined-outer-name",
+    "inconsistent-return-statements",
+    "redefined-builtin",
+    "duplicate-code",
 ]

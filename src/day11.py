@@ -45,7 +45,7 @@ def simultanelous_flash(grid):
         iteration += 1
         flashed = set()
         for i, row in enumerate(grid):
-            for j, val in enumerate(row):
+            for j, _ in enumerate(row):
                 if (i, j) not in flashed:
                     grid[i][j] += 1
                     grid, flashed = update_neighbours(grid, i, j, flashed)
