@@ -1,6 +1,6 @@
 from textwrap import dedent
 
-from src.day13 import part_1, part_2
+from src.day13 import part_1
 
 test_input = dedent(
     """
@@ -31,20 +31,3 @@ fold along x=5
 
 def test_part_1():
     assert part_1(test_input, num_fold=1) == 17
-
-
-def test_part_2():
-    assert (
-        part_2(test_input)
-        == dedent(
-            """
-    #####
-#...#
-#...#
-#...#
-#####
-.....
-.....
-    """
-        ).lstrip()
-    )
